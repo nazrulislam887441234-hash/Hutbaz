@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Hutbaz - Your Daily Grocery Partner</title>
+<meta name="title" content="Hutbaz - Your Daily Grocery Partner">
+<meta name="description" content="Buy groceries, electronics, cosmetics and daily essentials online from Hutbaz. Fast delivery across Bangladesh.">
+<meta name="keywords" content="Hutbaz, online shopping, Hut baz, Discount Product, Offer">
+<meta name="author" content="hutbaz">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://i.ibb.co.com/rG14dZ4R/logo.jpg">
+<link rel="apple-touch-icon" href="https://i.ibb.co.com/rG14dZ4R/logo.jpg">
+<meta name="theme-color" content="#2563eb">
+<link rel="canonical" href="https://hutbaz.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hutbaz.com">
+<meta property="og:title" content="Hutbaz - Your Daily Grocery Partner">
+<meta property="og:description" content="Buy groceries, electronics, cosmetics and daily essentials online from Hutbaz. Fast delivery across Bangladesh.">
+<meta property="og:image" content="https://i.ibb.co.com/rG14dZ4R/logo.jpg">
+<meta property="og:site_name" content="Hutbaz">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://hutbaz.com">
+<meta property="twitter:title" content="Hutbaz - Your Daily Grocery Partner">
+<meta property="twitter:description" content="Buy groceries, electronics, cosmetics and daily essentials online from Hutbaz. Fast delivery across Bangladesh.">
+<meta property="twitter:image" content="https://i.ibb.co.com/rG14dZ4R/logo.jpg">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hutbaz",
+  "url": "https://hutbaz.com",
+  "logo": "https://i.ibb.co.com/rG14dZ4R/logo.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+965 6908 5197",
+    "contactType": "customer service",
+    "availableLanguage": ["Bengali", "English"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/yourpage",
+    "https://wa.me/96569085197"
+  ]
+}
+</script>
+
+<style>
+:root{--primary:#2563eb;--accent:#fbbf24;--danger:#ef4444;--gradient:linear-gradient(135deg,#2563eb,#1e40af);}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f8fafc;color:#1e293b;}
+a{text-decoration:none;color:inherit;}
+
+/* Header */
+.header{position:sticky;top:0;background:#fff;z-index:1000;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.menu-btn{font-size:24px;cursor:pointer;color:#334155;}
+.logo{display:flex;align-items:center;gap:5px;font-size:20px;font-weight:900;}
+.logo.my{background:var(--primary);color:#fff;padding:4px 8px;border-radius:8px;}
+.logo.book{color:#1e293b;}
+.header-icons{position:relative;font-size:22px;color:#334155;}
+.cart-count{position:absolute;top:-8px;right:-8px;background:#ef4444;color:#fff;font-size:11px;font-weight:800;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+
+/* Sidebar */
+.sidebar{position:fixed;top:0;left:-280px;width:280px;height:100%;background:#fff;box-shadow:0 0 30px rgba(0,0,0,.2);z-index:2000;transition:.4s;padding-top:20px;}
+.sidebar.active{left:0;}
+.sidebar-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1999;display:none;}
+.sidebar-overlay.active{display:block;}
+.sidebar-header{padding:0 20px 15px;border-bottom:1px solid #f1f5f9;}
+.sidebar-header h3{font-size:20px;font-weight:800;}
+.sidebar a{display:flex;align-items:center;gap:12px;padding:14px 20px;font-weight:700;color:#334155;transition:.3s;}
+.sidebar a:hover{background:#eff6ff;color:var(--primary);}
+
+/* Search */
+.search-box{max-width:981px;margin:15px auto;padding:0 16px;}
+.search-box.box{position:relative;}
+.search-box input{width:100%;padding:14px 45px 14px 18px;border:1px solid #e2e8f0;border-radius:15px;font-size:15px;background:#fff;}
+.search-box i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:18px;}
+
+/* Banner Slider */
+.slider{max-width:981px;margin:0 auto 30px;padding:0 16px;position:relative;border-radius:20px;overflow:hidden;}
+.slides{display:flex;transition:transform.7s ease;}
+.slide{min-width:100%;position:relative;}
+.slide img{width:100%;height:auto;aspect-ratio:981/363;object-fit:cover;display:block;border-radius:20px;}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.4s;}
+.dot.active{background:#fff;width:20px;border-radius:10px;}
+
+/* Section */
+.section{max-width:981px;margin:0 auto 30px;padding:0 16px;}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.section-header h2{font-size:18px;font-weight:800;}
+.section-header a{color:var(--primary);font-size:14px;font-weight:700;}
+
+/* Categories */
+.categories{display:flex;gap:15px;overflow-x:auto;padding-bottom:10px;}
+.categories::-webkit-scrollbar{display:none;}
+.cat-card{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:75px;}
+.cat-icon{width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#dbeafe;overflow:hidden;}
+.cat-icon img{width:100%;height:100%;object-fit:cover;}
+.cat-card h4{font-size:12px;font-weight:700;text-align:center;}
+
+/* Products */
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(min-width:768px){.products{grid-template-columns:repeat(4,1fr);}}
+.product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.3s;display:flex;flex-direction:column;position:relative;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(37,99,235,.15);}
+.product-img{position:relative;padding:10px;background:#eff6ff;aspect-ratio:1/1;}
+.product-img img{width:85%;height:85%;object-fit:contain;display:block;margin:0 auto;}
+.badge-top{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;}
+.badge{padding:3px 8px;border-radius:15px;font-size:10px;font-weight:700;color:#fff;}
+.badge-orange{background:#ff6b35;}
+.badge-black{background:#1e293b;}
+.wishlist{position:absolute;top:8px;right:8px;width:28px;height:28px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;border:1px solid #e2e8f0;}
+.wishlist i{color:#cbd5e1;font-size:14px;}
+.wishlist.active i{color:var(--danger);}
+.product-body{padding:10px;display:flex;flex-direction:column;flex:1;}
+.rating{font-size:11px;color:#64748b;margin-bottom:5px;display:flex;align-items:center;gap:3px;}
+.rating i{color:var(--accent);font-size:11px;}
+.product-body h4{font-size:13px;font-weight:700;height:34px;overflow:hidden;line-height:1.4;margin-bottom:4px;}
+.product-body.cat{font-size:11px;color:#94a3b8;margin-bottom:6px;}
+.price-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.price{color:var(--primary);font-weight:900;font-size:15px;}
+.old-price{font-size:11px;color:#94a3b8;text-decoration:line-through;}
+.sold{font-size:11px;color:#16a34a;font-weight:600;margin-bottom:8px;}
+.btn-add{width:100%;padding:8px;border:none;border-radius:10px;background:var(--primary);color:#fff;font-weight:700;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;gap:5px;margin-top:auto;}
+.loading{text-align:center;padding:30px;color:var(--primary);font-weight:700;}
+.no-result{text-align:center;padding:30px;color:#64748b;}
+
+/* Footer */
+footer{background:#fff;padding:30px 16px;margin-top:40px;border-top:1px solid #e2e8f0;}
+.footer-grid{max-width:981px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;}
+footer.logo{margin-bottom:10px;font-size:18px;}
+footer p{font-size:13px;color:#64748b;line-height:1.6;}
+footer h3{font-size:15px;font-weight:800;margin-bottom:12px;}
+footer a{display:block;font-size:13px;color:#64748b;margin-bottom:8px;}
+.contact-item{display:flex;gap:8px;align-items:center;font-size:13px;color:#64748b;margin-bottom:8px;}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:10px;font-weight:800;margin-top:10px;font-size:13px;}
+.social{display:flex;gap:10px;margin-top:10px;}
+.social a{width:35px;height:35px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;color:var(--primary);}
+.copy{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <i class="fa-solid fa-bars menu-btn" onclick="toggleSidebar()"></i>
+    <div class="logo"><span class="my">HUT</span><span class="book">BAZ</span></div>
+    <a href="cart.html" class="header-icons">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </a>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header"><h3>Menu</h3></div>
+    <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="products.html"><i class="fa-solid fa-bag-shopping"></i>All Products</a>
+    <a href="track.html"><i class="fa-solid fa-truck-fast"></i>Track Order</a>
+    <a href="contact.html"><i class="fa-solid fa-phone"></i>Contact</a>
+    <a href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms & Condition</a>
+    <a href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+</div>
+
+<!-- Search -->
+<div class="search-box">
+    <div class="box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search products or categories...">
+    </div>
+</div>
+
+<!-- Banner Slider -->
+<div class="slider">
+    <div class="slides" id="bannerSlides"></div>
+    <div class="dots" id="bannerDots"></div>
+</div>
+
+<!-- Categories -->
+<div class="section">
+    <div class="section-header">
+        <h2>All Categories</h2>
+        <a href="categories.html">View More</a>
+    </div>
+    <div class="categories" id="categoryList"></div>
+</div>
+
+<!-- Popular Products -->
+<div class="section">
+    <div class="section-header">
+        <h2>Popular Products</h2>
+        <a href="products.html">View More</a>
+    </div>
+    <div class="products" id="popularProducts"></div>
+    <div class="loading" id="loading">Loading...</div>
+    <div class="no-result" id="noResult" style="display:none;">No products found 😔</div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="logo"><span class="my">HUT</span><span class="book">BAZ</span></div>
+            <p>We offer premium quality products and dependable service.
+             Your trust is what we value the most.</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="contact.html">Support</a>
+            <a href="terms.html">Terms & Condition</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div>
+            <h3>Support</h3>
+            <div id="contactList"></div>
+            <a href="#" id="whatsappLink" class="whatsapp-btn" target="_blank"><i class="fa-brands fa-whatsapp"></i> Live Chat</a>
+            <h3 style="margin-top:15px;">Follow Us</h3>
+            <div class="social" id="socialList"></div>
+        </div>
+    </div>
+    <div class="copy">© 2026 HUTBAZ. All Rights Reserved.</div>
+</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, orderBy, query, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {apiKey:"AIzaSyA7iGMmxsXkAP_zKqTECGHIV1bJQ0IpBF0",authDomain:"e-1commers.firebaseapp.com",projectId:"e-1commers",storageBucket:"e-1commers.firebasestorage.app",messagingSenderId:"943299209327",appId:"1:943299209327:web:852c9640ffd92ad0ca859a"};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+let slideIndex = 0;
+let slideInterval;
+let allProducts = [];
+let allCategories = [];
+
+const getLocal = (key, def) => JSON.parse(localStorage.getItem(key)) || def;
+const setLocal = (key, val) => localStorage.setItem(key, JSON.stringify(val));
+
+window.toggleSidebar = () => {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+
+// Local Meta for Rating/Like
+function getProductMeta(id){
+    let meta = getLocal('hutbaz_meta', {});
+    if(!meta[id]){
+        meta[id] = {
+            rating: (Math.random() * 0.5 + 4.4).toFixed(1),
+            reviews: Math.floor(Math.random() * 400 + 100),
+            sold: Math.floor(Math.random() * 1000 + 200),
+            liked: false
+        }
+        setLocal('hutbaz_meta', meta);
+    }
+    return meta[id];
+}
+
+// 1. Load Banner
+async function loadBanners(){
+    const q = query(collection(db, "banners"), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+    const slides = document.getElementById('bannerSlides');
+    const dots = document.getElementById('bannerDots');
+    let i = 0;
+    if(snap.empty) {
+        slides.innerHTML = `<div class="slide"><img src="https://via.placeholder.com/981x363/2563eb/fff?text=HUTBAZ" alt="Banner"></div>`;
+        return;
+    }
+    snap.forEach(doc => {
+        const data = doc.data();
+        slides.innerHTML += `<a href="${data.link || 'products.html'}" class="slide"><img src="${data.url}" alt="Banner"></a>`;
+        dots.innerHTML += `<div class="dot" onclick="goToSlide(${i})"></div>`;
+        i++;
+    });
+    showSlide(0);
+    if(i>1) slideInterval = setInterval(()=>{nextSlide()}, 3000);
+}
+window.nextSlide = () => {slideIndex++; if(slideIndex >= document.querySelectorAll('.slide').length) slideIndex = 0; showSlide(slideIndex);}
+window.goToSlide = (n) => {slideIndex = n; showSlide(slideIndex); clearInterval(slideInterval); slideInterval = setInterval(()=>{nextSlide()}, 3000);}
+function showSlide(n){const slides = document.querySelectorAll('.slide'); const dots = document.querySelectorAll('.dot'); if(!slides.length) return; document.getElementById('bannerSlides').style.transform = `translateX(-${n*100}%)`; dots.forEach((d,i)=>d.classList.toggle('active', i==n));}
+
+// 2. Load Categories + Products
+async function loadData(){
+    const [cSnap, pSnap] = await Promise.all([
+        getDocs(collection(db, "categories")),
+        getDocs(query(collection(db, "products"), orderBy("createdAt", "desc"), limit(12)))
+    ]);
+
+    allCategories = cSnap.docs.map(doc => ({id: doc.id,...doc.data()}));
+    allProducts = pSnap.docs.map(doc => ({id: doc.id,...doc.data()}));
+
+    renderCategories(allCategories);
+    renderProducts(allProducts);
+    document.getElementById('loading').style.display = 'none';
+}
+
+function renderCategories(cats){
+    const list = document.getElementById('categoryList');
+    list.innerHTML = '';
+    cats.forEach(data => {
+        const slug = data.slug || data.id;
+        list.innerHTML += `<a href="category.html?slug=${slug}" class="cat-card"><div class="cat-icon"><img src="${data.image}" alt="${data.name}"></div><h4>${data.name}</h4></a>`;
+    });
+}
+
+function renderProducts(products){
+    const list = document.getElementById('popularProducts');
+    const noResult = document.getElementById('noResult');
+    list.innerHTML = "";
+
+    if(products.length == 0){ noResult.style.display = 'block'; return; }
+    noResult.style.display = 'none';
+
+    products.forEach(product => {
+        const meta = getProductMeta(product.id);
+        const current = Number(product.currentPrice || 0);
+        const old = Number(product.oldPrice || 0);
+        const discount = old > current? Math.round(((old - current) / old) * 100) : 0;
+        const wishlistClass = meta.liked? 'active' : '';
+        const catName = allCategories.find(c => c.id == product.categoryId)?.name || '';
+
+        let badges = '';
+        if(discount > 0) badges += `<div class="badge badge-orange">-${discount}%</div>`;
+        if(Math.random() > 0.7) badges += `<div class="badge badge-black">HOT</div>`;
+
+        list.innerHTML += `
+        <div class="product-card" onclick="window.location='product.html?id=${product.id}'">
+            <div class="product-img">
+                <div class="badge-top">${badges}</div>
+                <div class="wishlist ${wishlistClass}" onclick="event.stopPropagation(); toggleWishlist('${product.id}', this)"><i class="fa-solid fa-heart"></i></div>
+                <img src="${product.images?.[0] || product.image}" alt="${product.name}">
+            </div>
+            <div class="product-body">
+                <div class="rating"><i class="fa-solid fa-star"></i> ${meta.rating} · ${meta.reviews} reviews</div>
+                <h4>${product.name}</h4>
+                <div class="cat">${catName}</div>
+             <div class="price-row">
+    <div class="price">৳ ${current}</div>
+    ${old > current ? `<div class="old-price">৳ ${old}</div>` : ''}
+</div>
+                <div class="sold">${meta.sold}+ sold</div>
+                <button class="btn-add" onclick="event.stopPropagation(); addToCart('${product.id}')"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+            </div>
+        </div>`;
+    });
+    updateCartCount();
+}
+
+// 3. Smart Search: Product + Category
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    const keyword = e.target.value.toLowerCase();
+    if(keyword == ''){
+        renderProducts(allProducts);
+    } else {
+        const filtered = allProducts.filter(p => {
+            const catName = allCategories.find(c => c.id == p.categoryId)?.name || '';
+            return (
+                (p.name || "").toLowerCase().includes(keyword) ||
+                (p.description || "").toLowerCase().includes(keyword) ||
+                catName.toLowerCase().includes(keyword)
+            );
+        });
+        renderProducts(filtered);
+    }
+});
+
+// 4. Wishlist + Cart
+window.toggleWishlist = (id, el) => {
+    let meta = getLocal('hutbaz_meta', {});
+    meta[id].liked =!meta[id].liked;
+    setLocal('hutbaz_meta', meta);
+    el.classList.toggle('active');
+}
+
+window.addToCart = (id) => {
+    const product = allProducts.find(p => p.id == id);
+    let cart = getLocal("hutbaz_cart", []);
+    let item = cart.find(i => i.id == id);
+    if(item){ item.qty += 1; }
+    else { cart.push({...product, price: Number(product.currentPrice), qty: 1}); }
+    setLocal("hutbaz_cart", cart);
+    updateCartCount();
+    alert(`${product.name} added to cart`);
+}
+function updateCartCount(){
+    const cart = getLocal("hutbaz_cart", []);
+    const total = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('cartCount').innerText = total;
+}
+
+// 5. Load Contact + Social
+async function loadContact(){
+    const snap = await getDocs(collection(db, "contactLinks"));
+    const list = document.getElementById('contactList');
+    let whatsapp = '';
+    snap.forEach(doc => {
+        const d = doc.data();
+        list.innerHTML += `<div class="contact-item"><i class="fa-solid fa-phone"></i> ${d.phone}</div><div class="contact-item"><i class="fa-solid fa-envelope"></i> ${d.email}</div>`;
+        if(d.liveSupport && d.whatsapp){ whatsapp = `https://wa.me/${d.whatsapp}`; }
+    });
+    document.getElementById('whatsappLink').href = whatsapp || '#';
+}
+async function loadSocial(){
+    const snap = await getDocs(collection(db, "socialLinks"));
+    const list = document.getElementById('socialList');
+    snap.forEach(doc => {
+        const d = doc.data();
+        list.innerHTML += `<a href="${d.url}" target="_blank"><i class="${d.icon}"></i></a>`;
+    });
+}
+
+loadBanners();
+loadData();
+loadContact();
+loadSocial();
+</script>
+</body>
+</html>
