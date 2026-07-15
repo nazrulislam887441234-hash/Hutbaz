@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>404 - Page Not Found | HUTBAZ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --primary: #2563eb;
+    --warning: #fbbf24;
+    --accent: #16a34a;
+    --dark: #0f172a;
+    --gradient: linear-gradient(90deg,#fbbf24,#2563eb,#fbbf24);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background: radial-gradient(ellipse at center, #1e40af 0%, #0f172a 100%);
+    padding:15px;
+}
+
+/* Background Glow */
+.bg-orb{
+    position:absolute;
+    width:80vw;
+    height:80vw;
+    max-width:600px;
+    max-height:600px;
+    background: radial-gradient(circle, rgba(37,99,235,.25) 0%, transparent 70%);
+    filter:blur(80px);
+    animation:pulseBg 4s ease-in-out infinite;
+}
+
+@keyframes pulseBg{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+}
+
+/* Floating Particles */
+.particles{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:1;
+}
+
+.particle{
+    position:absolute;
+    color:#fbbf24;
+    animation:floatParticle 8s linear infinite;
+    opacity:0;
+}
+
+@keyframes floatParticle{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+    10%{opacity:1;}
+    90%{opacity:1;}
+    100%{
+        transform:translateY(-20vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+.card{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:550px;
+    padding:clamp(30px, 7vw, 50px) clamp(20px, 5vw, 35px);
+    text-align:center;
+    background:rgba(30,41,59,.7);
+    backdrop-filter:blur(30px) saturate(180%);
+    -webkit-backdrop-filter:blur(30px) saturate(180%);
+    border:1px solid rgba(37,99,235,.3);
+    border-radius:clamp(20px, 5vw, 30px);
+    box-shadow:0 0 60px rgba(37,99,235,.3), 0 25px 80px rgba(0,0,0,.5);
+    color:#fff;
+    animation:cardPop .8s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes cardPop{
+    from{opacity:0; transform:scale(.8) translateY(30px);}
+    to{opacity:1; transform:scale(1) translateY(0);}
+}
+
+/* 404 Number */
+.error-404{
+    font-size:clamp(80px, 20vw, 120px);
+    font-weight:900;
+    background: var(--gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200% auto;
+    animation:shine 3s linear infinite, bounce 2s ease-in-out infinite;
+    line-height:1;
+}
+
+@keyframes shine{
+    to{background-position:200% center;}
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Icon */
+.icon-wrapper{
+    font-size:clamp(50px, 12vw, 70px);
+    margin:15px 0;
+    animation:shake 2s ease-in-out infinite;
+    color:var(--warning);
+}
+
+@keyframes shake{
+    0%,100%{transform:rotate(0deg);}
+    25%{transform:rotate(-10deg);}
+    75%{transform:rotate(10deg);}
+}
+
+h1{
+    font-size:clamp(22px, 6vw, 28px);
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.message{
+    font-size:clamp(15px, 4vw, 17px);
+    line-height:1.8;
+    opacity:.85;
+    margin-bottom:30px;
+    font-weight:500;
+}
+
+.message b{
+    color:var(--warning);
+}
+
+/* Buttons */
+.btn-group{
+    display:flex;
+    gap:12px;
+    flex-direction:column;
+    align-items:center;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:clamp(14px, 3.5vw, 16px) clamp(30px, 8vw, 40px);
+    color:#0f172a;
+    font-size:clamp(16px, 4.5vw, 18px);
+    font-weight:800;
+    text-decoration:none;
+    border-radius:15px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    max-width:280px;
+}
+
+.btn-primary{
+    background: var(--gradient);
+    box-shadow:0 8px 25px rgba(37,99,235,.4);
+}
+
+.btn-secondary{
+    background: rgba(255,255,255,.1);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+    transition:.5s;
+}
+
+.btn:active::before,
+.btn:hover::before{
+    left:100%;
+}
+
+.btn:active,
+.btn:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+.btn-primary:hover{
+    box-shadow:0 15px 35px rgba(37,99,235,.6);
+}
+
+.footer-note{
+    margin-top:20px;
+    font-size:clamp(12px, 3.5vw, 14px);
+    opacity:.7;
+    font-weight:600;
+}
+
+@media(min-width:500px){
+    .btn-group{
+        flex-direction:row;
+        justify-content:center;
+    }
+    .btn{width:auto;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-orb"></div>
+<div class="particles" id="particles"></div>
+
+<div class="card">
+
+<div class="error-404">404</div>
+
+<div class="icon-wrapper"><i class="fa-solid fa-box-open"></i></div>
+
+<h1>Oops! Page Not Found</h1>
+
+<div class="message">
+    The <b>page you're looking for</b> doesn't exist.<br>
+    The link might be wrong or the page has been moved.
+</div>
+
+<div class="btn-group">
+    <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Go Home</a>
+    <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-headset"></i> Contact Support</a>
+</div>
+
+<div class="footer-note">
+    Need help? Contact our support team
+</div>
+
+</div>
+
+<script>
+// Floating Particles
+const particlesContainer = document.getElementById('particles');
+const particleIcons = ['<i class="fa-solid fa-star"></i>', '<i class="fa-solid fa-sparkles"></i>', '<i class="fa-solid fa-circle"></i>'];
+
+function createParticle(){
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.innerHTML = particleIcons[Math.floor(Math.random() * particleIcons.length)];
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.fontSize = (16 + Math.random() * 16) + 'px';
+    particle.style.animationDuration = (5 + Math.random() * 4) + 's';
+    particle.style.animationDelay = Math.random() * 3 + 's';
+    particlesContainer.appendChild(particle);
+    
+    setTimeout(() => particle.remove(), 9000);
+}
+
+// Create particles every 600ms
+setInterval(createParticle, 600);
+
+// Prevent zoom on double tap for iOS
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+</script>
+
+</body>
+</html>
