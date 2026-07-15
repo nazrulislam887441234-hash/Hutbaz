@@ -74,6 +74,27 @@ body{background:#f8fafc;padding-bottom:100px;}
 /* Sticky Add to Cart Mobile */
 .sticky-cart{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:15px 20px;box-shadow:0 -5px 30px rgba(0,0,0,.1);display:flex;gap:12px;z-index:99;}
 @media(min-width:992px){.sticky-cart{display:none;}}
+.discount-badge{
+    display:inline-block;
+    background:#ef4444;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.save-box{
+    display:inline-block;
+    background:#16a34a;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:15px;
+}
 </style>
 </head>
 <body>
@@ -107,12 +128,16 @@ body{background:#f8fafc;padding-bottom:100px;}
                     <span id="reviewCount">0 Reviews</span>
                 </div>
 
-                <div class="price-wrap">
-                    <div class="current-price" id="currentPrice"></div>
-                    <div class="old-price" id="oldPrice"></div>
-                </div>
+           <div class="price-wrap">
+    <div class="current-price" id="currentPrice"></div>
+    <div class="old-price" id="oldPrice"></div>
+</div>
 
-                <div class="stock"><i class="fa-solid fa-check-circle"></i> In Stock</div>
+<div id="discountArea"></div>
+
+<div class="stock">
+    <i class="fa-solid fa-check-circle"></i> In Stock
+</div>
                 <p class="desc" id="prodDesc"></p>
 
                 <div class="btn-group">
@@ -189,12 +214,26 @@ async function loadProduct(){
 
 function renderProduct(){
     const p = currentProduct;
+const current = Number(p.currentPrice || 0);
+const old = Number(p.oldPrice || 0);
+
+const discount = old > current
+    ? Math.round(((old - current) / old) * 100)
+    : 0;
+
+const saveAmount = old > current
+    ? old - current
+    : 0;
     document.getElementById('pageTitle').innerText = p.name + ' - HUTBAZ';
     document.getElementById('prodName').innerText = p.name;
     document.getElementById('prodDesc').innerText = p.description || 'No description available';
     document.getElementById('currentPrice').innerText = '৳' + Number(p.currentPrice).toFixed(2);
     document.getElementById('oldPrice').innerText = p.oldPrice? '৳' + Number(p.oldPrice).toFixed(2) : '';
-
+   document.getElementById("discountArea").innerHTML =
+old > current ? `
+<div class="discount-badge">🔥 ${discount}% OFF</div>
+<div class="save-box">Save ৳${saveAmount}</div>
+` : "";
     // Images
     const images = p.images || [p.image];
     document.getElementById('mainImg').src = images[0];
@@ -252,11 +291,11 @@ window.submitReview = () => {
 
     const reviews = JSON.parse(localStorage.getItem(`hutbaz_reviews_${productId}`)) || [];
     reviews.push({
-        rating: selectedRating,
-        text: text,
-        date: new Date().toISOString(),
-        user: 'Guest User'
-    });
+    rating: selectedRating,
+    text: text,
+    date: new Date().toLocaleDateString("en-GB"),
+    user: 'Guest User'
+});
     localStorage.setItem(`hutbaz_reviews_${productId}`, JSON.stringify(reviews));
 
     document.getElementById('reviewText').value = '';
@@ -265,36 +304,114 @@ window.submitReview = () => {
     loadReviews();
     alert("✅ Review Submitted");
 }
+function getProductMeta(id){
+    let meta = JSON.parse(localStorage.getItem("hutbaz_meta")) || {};
 
-function loadReviews(){
-    const reviews = JSON.parse(localStorage.getItem(`hutbaz_reviews_${productId}`)) || [];
-    const list = document.getElementById('reviewList');
+    if(!meta[id]){
+        meta[id] = {
+            rating: (Math.random() * 0.5 + 4.4).toFixed(1),
+            reviews: Math.floor(Math.random() * 400 + 100),
+            sold: Math.floor(Math.random() * 1000 + 200),
+            liked: false
+        };
 
-    if(reviews.length == 0){
-        list.innerHTML = '<p style="text-align:center;color:#94a3b8;">No reviews yet. Be the first to review!</p>';
-        document.getElementById('reviewCount').innerText = '0 Reviews';
-        document.getElementById('avgStars').innerHTML = '';
-        return;
+        localStorage.setItem("hutbaz_meta", JSON.stringify(meta));
     }
 
-    // Avg Rating
-    const avg = reviews.reduce((sum,r) => sum + r.rating, 0) / reviews.length;
-    document.getElementById('reviewCount').innerText = `${reviews.length} Reviews`;
-    document.getElementById('avgStars').innerHTML = '★'.repeat(Math.round(avg)) + '☆'.repeat(5-Math.round(avg));
+    return meta[id];
+}
+const reviewTexts = [
+"Excellent quality. Highly recommended.",
+"Very good product. Worth the price.",
+"Fast delivery and nice packaging.",
+"Original product. I'm satisfied.",
+"Good quality and works perfectly.",
+"Amazing product. Will buy again.",
+"Exactly as described. Thanks seller.",
+"Premium quality. Five stars.",
+"Very useful product. Loved it.",
+"Received in good condition.",
+"Nice finishing and durable.",
+"Best product in this price range.",
+"Good service and fast shipping.",
+"Happy with my purchase.",
+"Quality exceeded my expectations."
+];
 
-    // List Reviews
-    list.innerHTML = reviews.reverse().map(r => `
-        <div class="review-item">
-            <div class="review-header">
-                <div class="review-user">${r.user}</div>
-                <div class="review-date">${new Date(r.date).toLocaleDateString()}</div>
-            </div>
-            <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
-            <div class="review-text">${r.text}</div>
-        </div>
-    `).join('');
+const customerNames = [
+"Rahim","Karim","Hasan","Jahid","Sakib",
+"Nayeem","Rakib","Mamun","Rasel","Tanvir",
+"Rifat","Mizan","Shakil","Arif","Imran",
+"Nusrat","Mim","Sadia","Tania","Jannat"
+];
+
+function randomDate(days = 180){
+    const d = new Date();
+    d.setDate(d.getDate() - Math.floor(Math.random() * days));
+    return d.toLocaleDateString();
 }
 
+function generateReviews(id){
+
+    let data = JSON.parse(localStorage.getItem("hutbaz_fake_reviews")) || {};
+
+    if(!data[id]){
+
+        const total = Math.floor(Math.random() * 8) + 5;
+
+        data[id] = [];
+
+        for(let i=0;i<total;i++){
+
+            data[id].push({
+                user: customerNames[Math.floor(Math.random()*customerNames.length)],
+                rating: Math.floor(Math.random()*2)+4, // 4-5 Star
+                text: reviewTexts[Math.floor(Math.random()*reviewTexts.length)],
+                date: randomDate()
+            });
+
+        }
+
+        localStorage.setItem("hutbaz_fake_reviews", JSON.stringify(data));
+    }
+
+    return data[id];
+}
+
+function loadReviews(){
+
+    const meta = getProductMeta(productId);
+
+    const fakeReviews = generateReviews(productId);
+    const userReviews = JSON.parse(localStorage.getItem(`hutbaz_reviews_${productId}`)) || [];
+
+    const reviews = [...userReviews.slice().reverse(), ...fakeReviews];
+    document.getElementById("reviewCount").innerText =
+        `${meta.reviews + userReviews.length} Reviews`;
+
+    document.getElementById("avgStars").innerHTML =
+        "★".repeat(Math.round(meta.rating)) +
+        "☆".repeat(5 - Math.round(meta.rating));
+
+    document.getElementById("reviewList").innerHTML =
+        reviews.map(r => `
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="review-user">${r.user}</div>
+                    <div class="review-date">${r.date}</div>
+                </div>
+
+                <div class="review-stars">
+                    ${"★".repeat(r.rating)}
+                    ${"☆".repeat(5-r.rating)}
+                </div>
+
+                <div class="review-text">
+                    ${r.text}
+                </div>
+            </div>
+        `).join("");
+}
 loadProduct();
 </script>
 </body>
