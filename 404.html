@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>404 - Page Not Found | HUTBAZ</title>
+<title>404 - Page Not Found | BD SHOP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 :root{
-    --primary: #2563eb;
-    --warning: #fbbf24;
+    --primary: #FF6B35;
+    --warning: #FFA500;
     --accent: #16a34a;
     --dark: #0f172a;
-    --gradient: linear-gradient(90deg,#fbbf24,#2563eb,#fbbf24);
+    --gradient: linear-gradient(90deg,#FF6B35,#FFA500,#FF6B35);
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Poppins','Noto Sans Bengali',sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -36,25 +36,25 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
-    background: radial-gradient(ellipse at center, #1e40af 0%, #0f172a 100%);
+    background: radial-gradient(ellipse at center, #FF8C42 0%, #0f172a 100%);
     padding:15px;
 }
 
-/* Background Glow */
+/* Background Glow Orange */
 .bg-orb{
     position:absolute;
     width:80vw;
     height:80vw;
     max-width:600px;
     max-height:600px;
-    background: radial-gradient(circle, rgba(37,99,235,.25) 0%, transparent 70%);
-    filter:blur(80px);
+    background: radial-gradient(circle, rgba(255,107,53,.35) 0%, transparent 70%);
+    filter:blur(90px);
     animation:pulseBg 4s ease-in-out infinite;
 }
 
 @keyframes pulseBg{
     0%,100%{transform:scale(1);}
-    50%{transform:scale(1.2);}
+    50%{transform:scale(1.25);}
 }
 
 /* Floating Particles */
@@ -68,7 +68,7 @@ body{
 
 .particle{
     position:absolute;
-    color:#fbbf24;
+    color:#FFA500;
     animation:floatParticle 8s linear infinite;
     opacity:0;
 }
@@ -93,12 +93,12 @@ body{
     max-width:550px;
     padding:clamp(30px, 7vw, 50px) clamp(20px, 5vw, 35px);
     text-align:center;
-    background:rgba(30,41,59,.7);
+    background:rgba(30,41,59,.75);
     backdrop-filter:blur(30px) saturate(180%);
     -webkit-backdrop-filter:blur(30px) saturate(180%);
-    border:1px solid rgba(37,99,235,.3);
+    border:2px solid rgba(255,107,53,.3);
     border-radius:clamp(20px, 5vw, 30px);
-    box-shadow:0 0 60px rgba(37,99,235,.3), 0 25px 80px rgba(0,0,0,.5);
+    box-shadow:0 0 70px rgba(255,107,53,.4), 0 25px 80px rgba(0,0,0,.5);
     color:#fff;
     animation:cardPop .8s cubic-bezier(.22,1,.36,1);
 }
@@ -140,22 +140,22 @@ body{
 
 @keyframes shake{
     0%,100%{transform:rotate(0deg);}
-    25%{transform:rotate(-10deg);}
-    75%{transform:rotate(10deg);}
+    25%{transform:rotate(-12deg);}
+    75%{transform:rotate(12deg);}
 }
 
 h1{
     font-size:clamp(22px, 6vw, 28px);
-    font-weight:800;
+    font-weight:900;
     margin-bottom:12px;
 }
 
 .message{
     font-size:clamp(15px, 4vw, 17px);
     line-height:1.8;
-    opacity:.85;
+    opacity:.9;
     margin-bottom:30px;
-    font-weight:500;
+    font-weight:600;
 }
 
 .message b{
@@ -165,7 +165,7 @@ h1{
 /* Buttons */
 .btn-group{
     display:flex;
-    gap:12px;
+    gap:14px;
     flex-direction:column;
     align-items:center;
 }
@@ -174,13 +174,13 @@ h1{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:10px;
     padding:clamp(14px, 3.5vw, 16px) clamp(30px, 8vw, 40px);
     color:#0f172a;
     font-size:clamp(16px, 4.5vw, 18px);
-    font-weight:800;
+    font-weight:900;
     text-decoration:none;
-    border-radius:15px;
+    border-radius:16px;
     transition:.3s;
     position:relative;
     overflow:hidden;
@@ -190,13 +190,13 @@ h1{
 
 .btn-primary{
     background: var(--gradient);
-    box-shadow:0 8px 25px rgba(37,99,235,.4);
+    box-shadow:0 10px 30px rgba(255,107,53,.5);
 }
 
 .btn-secondary{
     background: rgba(255,255,255,.1);
     color:#fff;
-    border:1px solid rgba(255,255,255,.2);
+    border:2px solid rgba(255,255,255,.2);
 }
 
 .btn::before{
@@ -217,18 +217,18 @@ h1{
 
 .btn:active,
 .btn:hover{
-    transform:translateY(-3px) scale(1.02);
+    transform:translateY(-4px) scale(1.03);
 }
 
 .btn-primary:hover{
-    box-shadow:0 15px 35px rgba(37,99,235,.6);
+    box-shadow:0 18px 40px rgba(255,107,53,.7);
 }
 
 .footer-note{
-    margin-top:20px;
+    margin-top:22px;
     font-size:clamp(12px, 3.5vw, 14px);
-    opacity:.7;
-    font-weight:600;
+    opacity:.8;
+    font-weight:700;
 }
 
 @media(min-width:500px){
@@ -265,13 +265,13 @@ h1{
 </div>
 
 <div class="footer-note">
-    Need help? Contact our support team
+    Need help? Contact BD SHOP support team
 </div>
 
 </div>
 
 <script>
-// Floating Particles
+// Floating Particles Orange
 const particlesContainer = document.getElementById('particles');
 const particleIcons = ['<i class="fa-solid fa-star"></i>', '<i class="fa-solid fa-sparkles"></i>', '<i class="fa-solid fa-circle"></i>'];
 
