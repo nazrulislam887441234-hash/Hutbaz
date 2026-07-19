@@ -3,60 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Cart - BDSHOP</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>My Cart - BD SHOP</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Noto+Sans+Bengali:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-:root{--primary:#2563eb;--accent:#fbbf24;--success:#16a34a;--danger:#ef4444;--gradient:linear-gradient(135deg,#2563eb,#1e40af);}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f8fafc;padding:20px;min-height:100vh;}
+:root{
+    --primary:#FF6B35;
+    --primary-dark:#E85A1A;
+    --accent:#FFA500;
+    --success:#16a34a;
+    --danger:#ef4444;
+    --gradient:linear-gradient(135deg,#FF6B35 0%,#FFA500 100%);
+    --bg:#FFF8F3;
+    --card:rgba(255,255,255,0.9);
+    --text:#1A1A1A;
+    --muted:#64748B;
+    --border:#FFE4D6;
+    --shadow:0 20px 60px rgba(255,107,53,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Noto Sans Bengali',sans-serif;}
+body{background:linear-gradient(135deg,#FFF8F3 0%,#FFE4D6 100%);padding:20px;min-height:100vh;}
 
-/* Header */
-.top-header{max-width:1100px;margin:0 auto 20px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-size:24px;font-weight:900;}
-.logo span:first-child{background:var(--primary);color:#fff;padding:5px 10px;border-radius:10px;}
-.logo span:last-child{color:#1e293b;}
+/* Header Premium */
+.top-header{
+    max-width:1150px;margin:0 auto 25px;display:flex;align-items:center;justify-content:space-between;
+    padding:15px 0;
+}
+.logo{font-size:26px;font-weight:900;display:flex;gap:6px;}
+.logo span:first-child{
+    background:var(--gradient);color:#fff;padding:6px 12px;border-radius:12px;
+    box-shadow:0 4px 15px rgba(255,107,53,0.3);
+}
+.logo span:last-child{color:var(--text);}
+.continue-btn{
+    color:var(--primary);font-weight:800;text-decoration:none;padding:10px 20px;
+    border-radius:12px;background:rgba(255,107,53,0.1);transition:.3s;display:flex;align-items:center;gap:8px;
+}
+.continue-btn:hover{background:var(--primary);color:#fff;transform:translateX(-3px);}
 
-/* Card */
-.card{max-width:1100px;margin:0 auto;background:#fff;border-radius:25px;padding:30px;box-shadow:0 20px 60px rgba(37,99,235,.1);border:1px solid #e2e8f0;}
-.card h2{font-size:24px;font-weight:800;margin-bottom:25px;display:flex;align-items:center;gap:10px;color:#1e293b;}
+/* Card Glass */
+.card{
+    max-width:1150px;margin:0 auto;background:var(--card);backdrop-filter:blur(25px);
+    border-radius:30px;padding:40px;box-shadow:var(--shadow);border:2px solid rgba(255,255,255,0.5);
+}
+.card h2{
+    font-size:28px;font-weight:900;margin-bottom:30px;display:flex;align-items:center;gap:12px;
+    background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
 
-/* Cart Item */
-.cart-item{display:flex;gap:20px;border:1px solid #f1f5f9;padding:20px;border-radius:18px;margin-bottom:15px;background:linear-gradient(135deg,#ffffff,#f8fafc);transition:.3s;align-items:center;}
-.cart-item:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,99,235,.12);border-color:var(--primary);}
-.cart-item img{width:100px;height:100px;object-fit:cover;border-radius:15px;border:2px solid #eff6ff;}
+/* Cart Item Premium */
+.cart-item{
+    display:flex;gap:25px;border:2px solid var(--border);padding:25px;border-radius:22px;margin-bottom:18px;
+    background:linear-gradient(135deg,#ffffff,#FFF8F3);transition:.4s cubic-bezier(.22,1,.36,1);align-items:center;
+}
+.cart-item:hover{
+    transform:translateY(-5px);box-shadow:0 20px 50px rgba(255,107,53,.2);border-color:var(--primary);
+}
+.cart-item img{
+    width:110px;height:110px;object-fit:cover;border-radius:18px;border:3px solid var(--border);
+    box-shadow:0 8px 20px rgba(255,107,53,0.15);
+}
 .info{flex:1;}
-.info h4{font-size:16px;font-weight:700;margin-bottom:6px;color:#1e293b;}
-.info.category{font-size:12px;color:#64748b;margin-bottom:8px;}
-.price{font-weight:800;color:var(--primary);font-size:18px;}
-.price small{font-size:12px;color:#94a3b8;font-weight:400;}
-.qty-box{display:flex;gap:10px;align-items:center;margin-top:10px;}
-.qty-box label{font-size:12px;color:#64748b;font-weight:600;}
-.qty{display:flex;gap:8px;align-items:center;background:#eff6ff;border-radius:12px;padding:4px;}
-.qty button{width:32px;height:32px;border:none;border-radius:8px;background:var(--primary);color:#fff;cursor:pointer;font-weight:800;font-size:16px;transition:.2s;}
-.qty button:hover{background:#1e40af;}
-.qty span{min-width:30px;text-align:center;font-weight:700;}
-.delete-btn{color:#fff;background:var(--danger);border:none;width:40px;height:40px;border-radius:12px;cursor:pointer;transition:.2s;font-size:16px;}
-.delete-btn:hover{background:#dc2626;transform:scale(1.1);}
+.info h4{font-size:18px;font-weight:900;margin-bottom:8px;color:var(--text);}
+.info.category{font-size:13px;color:var(--muted);margin-bottom:10px;font-weight:700;}
+.price{font-weight:900;color:var(--primary);font-size:20px;}
+.price small{font-size:13px;color:var(--muted);font-weight:700;margin-left:4px;}
+.qty-box{display:flex;gap:12px;align-items:center;margin-top:12px;}
+.qty-box label{font-size:13px;color:var(--muted);font-weight:800;}
+.qty{
+    display:flex;gap:10px;align-items:center;background:linear-gradient(135deg,rgba(255,107,53,0.1),rgba(255,165,0,0.1));
+    border-radius:15px;padding:6px;border:2px solid var(--border);
+}
+.qty button{
+    width:36px;height:36px;border:none;border-radius:10px;background:var(--gradient);color:#fff;
+    cursor:pointer;font-weight:900;font-size:16px;transition:.3s;box-shadow:0 4px 12px rgba(255,107,53,0.3);
+}
+.qty button:hover{transform:scale(1.15);}
+.qty span{min-width:35px;text-align:center;font-weight:900;font-size:16px;}
+.delete-btn{
+    color:#fff;background:linear-gradient(135deg,var(--danger),#dc2626);border:none;width:45px;height:45px;
+    border-radius:15px;cursor:pointer;transition:.3s;font-size:18px;box-shadow:0 6px 20px rgba(239,68,68,0.3);
+}
+.delete-btn:hover{background:var(--danger);transform:scale(1.15) rotate(5deg);}
 
-/* Summary */
-.summary{border-top:2px dashed #e2e8f0;padding-top:20px;margin-top:20px;}
-.summary-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#64748b;}
-.summary-row.total{font-size:20px;font-weight:800;color:#1e293b;margin-top:10px;}
-.summary-row.total span:last-child{color:var(--primary);}
+/* Summary Premium */
+.summary{
+    border-top:3px dashed var(--border);padding-top:25px;margin-top:25px;
+    background:linear-gradient(135deg,rgba(255,248,243,0.6),rgba(255,255,255,0.6));
+    border-radius:20px;padding:25px;
+}
+.summary-row{display:flex;justify-content:space-between;margin-bottom:12px;font-size:15px;color:var(--muted);font-weight:700;}
+.summary-row.total{
+    font-size:24px;font-weight:900;color:var(--text);margin-top:15px;padding-top:15px;border-top:2px solid var(--border);
+}
+.summary-row.total span:last-child{color:var(--primary);font-size:26px;}
 
-.checkout-btn{width:100%;padding:18px;margin-top:20px;background:var(--gradient);border:none;border-radius:18px;color:#fff;font-weight:800;font-size:18px;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 25px rgba(37,99,235,.3);}
-.checkout-btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(37,99,235,.4);}
-.checkout-btn:disabled{background:#cbd5e1;cursor:not-allowed;box-shadow:none;}
+.checkout-btn{
+    width:100%;padding:20px;margin-top:25px;background:var(--gradient);border:none;border-radius:20px;
+    color:#fff;font-weight:900;font-size:19px;cursor:pointer;transition:.3s;display:flex;align-items:center;
+    justify-content:center;gap:12px;box-shadow:0 12px 40px rgba(255,107,53,.4);
+}
+.checkout-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 60px rgba(255,107,53,.5);}
+.checkout-btn:disabled{background:#cbd5e1;cursor:not-allowed;box-shadow:none;transform:none;}
 
-.empty{text-align:center;color:#94a3b8;padding:60px 20px;}
-.empty i{font-size:60px;color:#dbeafe;margin-bottom:15px;}
-.empty h3{font-size:18px;color:#64748b;margin-bottom:8px;}
-.empty p{font-size:14px;}
+.empty{text-align:center;color:var(--muted);padding:80px 20px;}
+.empty i{font-size:80px;color:rgba(255,107,53,0.2);margin-bottom:20px;}
+.empty h3{font-size:22px;color:var(--text);margin-bottom:10px;font-weight:900;}
+.empty p{font-size:15px;font-weight:700;}
 
 @media(max-width:768px){
-  .cart-item{flex-direction:column;align-items:flex-start;}
-  .cart-item img{width:100%;height:150px;}
+ .cart-item{flex-direction:column;align-items:flex-start;}
+ .cart-item img{width:100%;height:180px;}
+ .card{padding:25px 20px;}
 }
 </style>
 </head>
@@ -64,11 +122,11 @@ body{background:#f8fafc;padding:20px;min-height:100vh;}
 
 <div class="top-header">
     <div class="logo"><span>BD</span><span>SHOP</span></div>
-    <a href="index.html" style="color:var(--primary);font-weight:700;"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
+    <a href="index.html" class="continue-btn"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
 </div>
 
 <div class="card">
-    <h2><i class="fa-solid fa-cart-shopping" style="color:var(--primary);"></i> My Shopping Cart</h2>
+    <h2><i class="fa-solid fa-cart-shopping"></i> My Shopping Cart</h2>
     <div id="cartList"></div>
 
     <div class="summary" id="summaryBox" style="display:none;">
@@ -78,10 +136,10 @@ body{background:#f8fafc;padding:20px;min-height:100vh;}
         </div>
         <div class="summary-row">
             <span>Delivery</span>
-            <span>Free</span>
+            <span style="color:var(--success);font-weight:900;">Free</span>
         </div>
         <div class="summary-row total">
-            <span>Total</span>
+            <span>Grand Total</span>
             <span id="total">৳0.00</span>
         </div>
     </div>
@@ -92,7 +150,7 @@ body{background:#f8fafc;padding:20px;min-height:100vh;}
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem('hutbaz_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('bdshop_cart')) || []; // CHANGED
 
 function renderCart(){
     const list = document.getElementById('cartList');
@@ -104,10 +162,10 @@ function renderCart(){
         <div class='empty'>
             <i class="fa-solid fa-cart-shopping"></i>
             <h3>Your Cart is Empty</h3>
-            <p>Add some products to get started</p>
+            <p>Add some amazing products to get started</p>
         </div>`;
-        document.getElementById('total').innerText = '৳0.00'; // 1. Changed here
-        document.getElementById('subtotal').innerText = '৳0.00'; // 2. Changed here
+        document.getElementById('total').innerText = '৳0.00';
+        document.getElementById('subtotal').innerText = '৳0.00';
         summaryBox.style.display = 'none';
         checkoutBtn.disabled = true;
         return;
@@ -119,14 +177,14 @@ function renderCart(){
     let total = 0;
 
     cart.forEach((item, i) => {
-        total += item.price * item.qty;
+        total += Number(item.price || item.currentPrice) * item.qty;
         list.innerHTML += `
         <div class="cart-item">
           <img src="${item.images?.[0] || item.image}" alt="${item.name}">
             <div class="info">
                 <h4>${item.name}</h4>
                 <div class="category">${item.category || 'General'}</div>
-                <p class="price">৳${item.price} <small>each</small></p> // 3. Changed here
+                <p class="price">৳${item.price || item.currentPrice} <small>each</small></p>
                 <div class="qty-box">
                     <label>Quantity:</label>
                     <div class="qty">
@@ -140,21 +198,21 @@ function renderCart(){
         </div>`;
     });
 
-    document.getElementById('subtotal').innerText = '৳' + total.toFixed(2); // 4. Changed here
-    document.getElementById('total').innerText = '৳' + total.toFixed(2); // 5. Changed here
+    document.getElementById('subtotal').innerText = '৳' + total.toFixed(2);
+    document.getElementById('total').innerText = '৳' + total.toFixed(2);
 }
 
 function updateQty(i, change){
     cart[i].qty += change;
     if(cart[i].qty < 1) cart[i].qty = 1;
-    localStorage.setItem('hutbaz_cart', JSON.stringify(cart));
+    localStorage.setItem('bdshop_cart', JSON.stringify(cart)); // CHANGED
     renderCart();
     updateHeaderCart();
 }
 
 function removeItem(i){
     cart.splice(i,1);
-    localStorage.setItem('hutbaz_cart', JSON.stringify(cart));
+    localStorage.setItem('bdshop_cart', JSON.stringify(cart)); // CHANGED
     renderCart();
     updateHeaderCart();
 }
